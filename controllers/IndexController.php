@@ -6,7 +6,7 @@ class Manual_IndexController extends Tiger_Controller_Action
     {
         parent::init();
 
-        /** The CMS Controller should not be on hight ports 8080 and 8081 since these are usually public-facing pages. */
+        /** The CMS Controller should not be on high ports 8080 and 8081 since these are usually public-facing pages. */
         if ( in_array( $_SERVER['SERVER_PORT'], [ '8080', '8081' ] ) ) {
             $uri = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
             $this->redirect( $uri );
@@ -30,6 +30,8 @@ class Manual_IndexController extends Tiger_Controller_Action
         $this->view->inlineScript()->appendFile( Tiger_Cache::version('/assets/manual/js/manual.js') );
 
         $this->view->addHelperPath(MODULES_PATH . '/manual/views/helpers', 'Manual_View_Helper');
+
+		$this->view->lang = Manual_Service_Manual::getDocLang();
 
     }
 

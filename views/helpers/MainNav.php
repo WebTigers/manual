@@ -6,7 +6,7 @@ class Manual_View_Helper_MainNav extends Zend_View_Helper_Abstract
     {
 
         $dom = new DOMDocument();
-        $dom->loadHTMLFile(MODULES_PATH . '/manual/docs/' . LANG . '/index.html');
+        $dom->loadHTMLFile(MODULES_PATH . '/manual/docs/' . Manual_Service_Manual::getDocLang() . '/index.html');
         $xpath = new DOMXpath( $dom );
         $toc = $xpath->query("//div[contains(@class,'toc')]");
 

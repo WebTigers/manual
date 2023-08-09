@@ -13,7 +13,7 @@ class Manual_View_Helper_Article extends Zend_View_Helper_Abstract
         $content = '';
 
         $article = Zend_Controller_Front::getInstance()->getRequest()->getParam('article');
-        $file = MODULES_PATH . '/manual/docs/' . LANG . '/' . $article;
+        $file = MODULES_PATH . '/manual/docs/' . Manual_Service_Manual::getDocLang() . '/' . $article;
 
         if ( file_exists( $file ) ) {
 
